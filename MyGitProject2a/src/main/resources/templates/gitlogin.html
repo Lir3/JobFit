@@ -7,17 +7,17 @@
 </head>
 <body>
 
-    <h2>ログイン</h2>
+    <h2>ログインページ</h2>
   
     <!-- ログインフォーム -->
-    <form action="/gitpralogin" method="post">
+    <form th:action="@{/gitpralogin}" method="post">
         ID:
         <input type="text" id="id" name="id"><br>
 
         Password:
         <input type="password" id="password" name="password"><br>
 
-        <button type="submit">ログインページ</button>
+        <button type="submit">ログイン</button>
     </form>
 
 </body>
