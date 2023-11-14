@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JAVAふ</title>
+</head>
+<body>
+	<h2>商品編集</h2>
+	<form th:action="@{/itemedit2}" method="POST">
+	<p>商品名</p>
+<input type="text" name="syouhinmei">
+    
+      <p>値段</p>
+       <input type="text" name="nedann">
+      <br>
+		  <br>
+		  <input type = "submit" >
+		   
+       
+    </form>
+    
+    <p th:text="${hituma}"></p>
+</body>
+</html>
+
