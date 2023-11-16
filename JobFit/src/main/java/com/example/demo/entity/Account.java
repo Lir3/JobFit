@@ -26,7 +26,7 @@ public class Account {
 	private String Gender;
 	
 	@Column(name = "Password")
-	private int Password;
+	private String Password;
 	
 	@Column(name = "Mailaddress")
 	private String Mailaddress;
@@ -63,11 +63,11 @@ public class Account {
 		Gender = gender;
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return Password;
 	}
 
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		Password = password;
 	}
 

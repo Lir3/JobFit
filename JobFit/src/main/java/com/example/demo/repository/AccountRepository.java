@@ -7,5 +7,15 @@ import com.example.demo.entity.Account;
 
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
+	Account findByUserNameAndPassword(String username, String password);
+
+	boolean existsByUserName(String username);
+
+	Account findByUserName(String string);
+
+	
+
+
+
    
 }
