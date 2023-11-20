@@ -17,7 +17,7 @@ public class Account {
 	private int UserID;
 
 	@Column(name = "UserName")
-	private String UserName;
+	private String userName;
 
 	@Column(name = "Age")
 	private int Age;
@@ -26,10 +26,11 @@ public class Account {
 	private String Gender;
 	
 	@Column(name = "Password")
-	private String Password;
+	private String password;
 	
 	@Column(name = "Mailaddress")
 	private String Mailaddress;
+	
 
 	public int getUserID() {
 		return UserID;
@@ -40,11 +41,11 @@ public class Account {
 	}
 
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
 
 	public int getAge() {
@@ -64,11 +65,11 @@ public class Account {
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public String getMailaddress() {
