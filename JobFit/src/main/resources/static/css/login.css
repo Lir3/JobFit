@@ -1,0 +1,60 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+h2 {
+    text-align: left;
+    color: #333;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* 大きな画面に対して最大幅を設定 */
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 100%; /* ボタンを親要素いっぱいに広げる */
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+@media screen and (max-width: 600px) {
+    /* 小さな画面に対してスタイルを調整 */
+    h2 {
+        text-align: center;
+    }
+    form {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+}
