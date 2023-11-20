@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,35 +9,11 @@
 
     <h2>JobFitへようこそ</h2>
   
-    <!-- アカウント登録フォーム -->
+    <!-- ログインフォーム -->
     <form action="/login" method="post">
-        <h3>アカウント登録</h3>
-        
-        <!-- 名前 -->
-        <label for="id">名前:</label>
-        <input type="text" id="id" name="id">
-        
-        <!-- 年齢 -->
-        <label for="age">年齢:</label>
-        <input type="text" id="age" name="age">
-        
-        <!-- 性別 -->
-        <label for="male">男性:</label>
-        <input type="radio" id="male" name="gender" value="male">
-        
-        <label for="female">女性:</label>
-        <input type="radio" id="female" name="gender" value="female">
-        
-        <!-- パスワード -->
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password">
-        
-        <!-- メールアドレス -->
-        <label for="mailaddress">メールアドレス:</label>
-        <input type="text" id="mailaddress" name="mailaddress">
-        
-        <!-- 登録ボタン -->
-        <button type="submit">登録</button>
+        <button type="submit">ログイン</button>
+        <button type="submit">ゲスト</button>
+        <button  onclick="location:href='LoginReg.html'" type="submit">アカウントを登録していない方</button>
     </form>
 
 </body>
