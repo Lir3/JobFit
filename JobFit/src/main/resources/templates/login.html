@@ -9,21 +9,35 @@
 
     <h2>JobFitへようこそ</h2>
   
-    <!-- ログインフォーム -->
+    <!-- アカウント登録フォーム -->
     <form action="/login" method="post">
-		<h3>アカウント登録</h3>>
-         名前:
-        <input type="text" id="id" name="id"
-        年齢：
-        <input type="text" id="age" name="age"
-        性別：
-      <input type = "radio" name ="gender" value ="male">男性
-         <input type = "radio" name ="gender" value ="femlel">女性
-        パスワード:
+        <h3>アカウント登録</h3>
+        
+        <!-- 名前 -->
+        <label for="id">名前:</label>
+        <input type="text" id="id" name="id">
+        
+        <!-- 年齢 -->
+        <label for="age">年齢:</label>
+        <input type="text" id="age" name="age">
+        
+        <!-- 性別 -->
+        <label for="male">男性:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        
+        <label for="female">女性:</label>
+        <input type="radio" id="female" name="gender" value="female">
+        
+        <!-- パスワード -->
+        <label for="password">パスワード:</label>
         <input type="password" id="password" name="password">
-        メールアドレス：
-         <input type="text" id="mailaddress" name="mailaddress"
- <button  onclick="location:href='Jobfit.html'" type="submit">登録</button>
+        
+        <!-- メールアドレス -->
+        <label for="mailaddress">メールアドレス:</label>
+        <input type="text" id="mailaddress" name="mailaddress">
+        
+        <!-- 登録ボタン -->
+        <button type="submit">登録</button>
     </form>
 
 </body>
