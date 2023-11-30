@@ -18,8 +18,14 @@ public class LoginController {
 	public String login() {
 		return "login";
 	}
+	
 
-	@RequestMapping(path = "/login", method = RequestMethod.POST)
+	@RequestMapping(path = "/loginpage", method = RequestMethod.GET)
+    public String showLoginPage() {
+        return "loginpage";
+    }
+	
+	@RequestMapping(path = "/loginpage", method = RequestMethod.POST)
 	public String login(String username, String password, Model model) {
 		Account user = accountRepository.findByUserNameAndPassword(username, password);
 		if (user != null) {
@@ -29,11 +35,12 @@ public class LoginController {
 			// ログイン失敗
 			// ログイン失敗時の処理
 			model.addAttribute("error", "ユーザー名またはパスワードが正しくありません。");
-			return "redirect:/ng";
+			return "redirect:/login";
 		}
 
 	}
-
+	
+	
 	@RequestMapping(path = "/guest-login", method = RequestMethod.GET)
 	public String guestLogin(Model model) {
 		// ゲストユーザーのデータを指定してログイン
@@ -47,6 +54,8 @@ public class LoginController {
 			model.addAttribute("error", "ゲストユーザーが存在しません。");
 			return "redirect:/ng";
 		}
+		
 	}
+	
 
 }

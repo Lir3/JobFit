@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 @Table(name = "Account")
 public class Account {
 
+	
 	//主キーには「@Id」を設定する！
 	@Id
 	//カラム名(列名)を書く。
@@ -18,7 +19,7 @@ public class Account {
 
 	@Column(name = "UserName")
 	private String userName;
-
+	
 	@Column(name = "Age")
 	private int Age;
 
