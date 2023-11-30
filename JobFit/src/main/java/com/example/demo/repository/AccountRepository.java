@@ -6,18 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.Account;
 
-
 public interface AccountRepository extends JpaRepository<Account, BigInteger> {
 
-	Account findByUserNameAndPassword(String username, String password);
+    Account findByUsernameAndPassword(String username, String password);
 
-	boolean existsByUserName(String username);
+    Account findByUsername(String username);
 
-	Account findByUserName(String string);
+    boolean existsByUsername(String username);
 
-	
-
-
-
-   
 }
