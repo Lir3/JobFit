@@ -3,8 +3,8 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Account.Gender;
@@ -16,12 +16,12 @@ public class RegistrationController {
     @Autowired
     private AccountRepository accountRepository;
 
-    @RequestMapping(path = "/register", method = RequestMethod.GET)
+    @GetMapping("/register")
     public String register() {
         return "register"; // 新規登録画面に遷移
     }
 
-    @RequestMapping(path = "/register", method = RequestMethod.POST)
+    @PostMapping("/register")
     public String processRegistration(String username, String password, String mailaddress, String gender, int age, Model model) {
         // バリデーション
         if (username == null || username.trim().isEmpty() ||

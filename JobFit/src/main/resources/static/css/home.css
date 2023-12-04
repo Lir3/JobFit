@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: left;
+    color: #333;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.btns {
+  width: 130px;
+    display: inline-block;
+    text-align: center;
+    }
+
+.btns p {
+  margin:0.5em 0;
+  font-size: 23px;
+  font-family: 'ＭＳ Ｐゴシック','MS PGothic','ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+}
+
+.start_btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #EFEFEF;/*背景色*/
+    width: 130px;/*幅*/
+    height: 130px;/*高さ*/
+    padding: 15px;/*ボタン内の余白*/
+    border-radius: 50%;/*丸くする*/
+    box-sizing: border-box;
+    text-align: center;/*文字を中央に*/
+    border: solid 2px #EFEFEF;
+    box-shadow: 4px 4px 9px 0px rgba(255,255,255,0.45) inset, -4px -4px 9px 0px rgba(0, 0, 0, 0.06) inset;/*ボタンに立体感を出す*/
+    cursor: pointer;/*カーソル当てたときの動き*/
+    transition: .3s;/*押したときの動きを滑らかに*/
+}
+
+.start_btn:active {/*ボタンを押したとき*/
+    box-shadow: 3px 3px 6px 0px rgba(157, 157, 157, 0.07) inset, -2px -2px 3px 0px rgba(255, 255, 255, 0.52) inset;/*影を変化させる*/
+}
+.start_btn:active {/*ボタンを押したとき*/
+    box-shadow: 3px 3px 6px 0px rgba(157, 157, 157, 0.07) inset, -2px -2px 3px 0px rgba(255, 255, 255, 0.52) inset;/*影を変化させる*/
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+    h2 {
+        text-align: center;
+    }
+    form {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+}
