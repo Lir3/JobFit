@@ -11,15 +11,15 @@
     <h2>JobFitへようこそ</h2>
   
     <!-- ログインフォーム -->
-		
-    <form th:action="@{/loginpage}" method="get">
+    <form th:action="@{/loginpage}" method="post" id="loginForm">
         <!-- ログインボタンをsubmitに変更 -->
         <button type="submit">ログイン</button>
         <!-- ゲストログイン用のボタン -->
-        <button type="submit" formaction="@{/guest-login}">ゲスト</button>
+        <button type="button" onclick="guestLogin()">ゲスト</button>
         <!-- アカウント登録ページへのリンク -->
         <a href="/register">アカウントを登録していない方</a>
     </form>
+
     <script>
         // ゲストログイン用の関数
         function guestLogin() {
@@ -27,6 +27,5 @@
             window.location.href = "/guest-login";
         }
     </script>
-
 </body>
 </html>
