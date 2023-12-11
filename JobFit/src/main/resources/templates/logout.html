@@ -1,0 +1,15 @@
+<!-- user-info.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー情報</title>
+</head>
+<body>
+    <h2>ユーザー情報</h2>
+    <p th:if="${user != null}" th:text="'ユーザー名: ' + ${user.userName}"></p>
+    <p th:if="${user != null}" th:text="'ID: ' + ${user.id}"></p>
+    <a href="/login">ログアウト</a>
+</body>
+</html>

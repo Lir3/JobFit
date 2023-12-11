@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.entity.Account;
+import com.example.demo.entity.Account.Gender;
 import com.example.demo.repository.AccountRepository;
 
 @Controller
@@ -32,24 +33,24 @@ public class RegistrationController {
         }
 
         // 既存ユーザーの重複チェック
-        if (accountRepository.existsByUserName(username)) {
+        if (accountRepository.existsByUsername(username)) {
             model.addAttribute("error", "指定されたユーザー名は既に使用されています。別のユーザー名を試してください。");
             return "register";
         }
 
         // 新規ユーザーを作成して保存
         Account newUser = new Account();
-        newUser.setUserName(username);
+        newUser.setUsername(username);
         newUser.setPassword(password);
         newUser.setMailaddress(mailaddress);
-        newUser.setGender(gender);
+        newUser.setGender(Gender.valueOf(gender.toUpperCase())); // 文字列からEnumに変換
         newUser.setAge(age);
 
-        // Spring Data JPAが提供するsaveメソッドを使用
+        // Spring Data JPAが提供するsaveメソッドを使用して新規ユーザーを保存
         accountRepository.save(newUser);
 
         // 登録成功時の処理
         model.addAttribute("success", "新規登録が成功しました。");
-        return "redirect:/login";
+        return "login"; // ログイン画面にリダイレクト
     }
 }
