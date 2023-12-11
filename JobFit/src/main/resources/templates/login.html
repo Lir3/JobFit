@@ -12,10 +12,17 @@
   
     <!-- ログインフォーム -->
     <form action="/login" method="post">
-        <button type="submit">ログイン</button>
-        <button type="submit">ゲスト</button>
+        <button type="button">ログイン</button>
+        <button type="button" button">ゲスト</button>
         <a href="/register">アカウントを登録していない方</a>
     </form>
+    <script>
+        // ゲストログイン用の関数
+        function guestLogin() {
+            // ゲストログイン後のホーム画面に遷移
+            window.location.href = "/guest-login";
+        }
+    </script>
 
 </body>
 </html>

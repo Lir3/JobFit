@@ -4,53 +4,48 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "問題")
+@Table(name = "question")
 public class Question {
 
-	@Id
-	@Column(name = "Questions")
-	public Question quiz;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	public Question getQuiz() {
-		return quiz;
+    @Column(name = "text") 
+    private String text;
+    
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private Types type;
+    
+    @Column(name = "option_yes_score") 
+    private int yes;
+    
+    @Column(name = "option_no_score") 
+    private int no;
+    
+    @Column(name = "option_neutral_score") 
+    private int neutral;
+    
+    @OneToMany(mappedBy = "question")
+    private List<Answers> answers;
+
+	public int getId() {
+		return id;
 	}
 
-	public void setQuiz(Question quiz) {
-		this.quiz = quiz;
-	}
-
-	@Column(name = "QuestionID")
-	private int questionID;
-
-	@Column(name = "text")
-	private String text;
-
-	@Column(name = "choice")
-	private String[] choice;
-
-	@Column(name = "correctAnswerIndex")
-	private int correctAnswerIndex;
-
-	@Column(name = "Parameter")
-	private int parameter;
-
-	public Question(int questionID, String text, String[] choice, int correctAnswerIndex) {
-		this.questionID = questionID;
-		this.text = text;
-		this.choice = choice;
-		this.correctAnswerIndex = correctAnswerIndex;
-	}
-
-	public int getQuestionID() {
-		return questionID;
-	}
-
-	public void setQuestionID(int questionID) {
-		this.questionID = questionID;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getText() {
@@ -61,43 +56,51 @@ public class Question {
 		this.text = text;
 	}
 
-	public String[] getChoice() {
-		return choice;
+	public Types getType() {
+		return type;
 	}
 
-	public void setChoice(String[] choice) {
-		this.choice = choice;
+	public void setType(Types type) {
+		this.type = type;
 	}
 
-	public int getCorrectAnswerIndex() {
-		return correctAnswerIndex;
+	public int getYes() {
+		return yes;
 	}
 
-	public void setCorrectAnswerIndex(int correctAnswerIndex) {
-		this.correctAnswerIndex = correctAnswerIndex;
+	public void setYes(int yes) {
+		this.yes = yes;
 	}
 
-	public int getParameter() {
-		return parameter;
+	public int getNo() {
+		return no;
 	}
 
-	public void setParameter(int parameter) {
-		this.parameter = parameter;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
-	////////////////////////////////////////////////////////////////
-	public Question[] getQuestions() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public int getNeutral() {
+		return neutral;
 	}
 
-	public int getAnswer() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+	public void setNeutral(int neutral) {
+		this.neutral = neutral;
 	}
 
-	public void setQuestions(List<Question> questions) {
-		// TODO 自動生成されたメソッド・スタブ
-
+	public List<Answers> getAnswers() {
+		return answers;
 	}
+
+	public void setAnswers(List<Answers> answers) {
+		this.answers = answers;
+	}
+
+    
+	
+   
+	
+   
+    
+
 }

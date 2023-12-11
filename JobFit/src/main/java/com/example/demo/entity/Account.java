@@ -37,6 +37,8 @@ public class Account {
     @Column(name = "Mailaddress")
     private String mailaddress;
 
+    @Column(name = "type_history")
+    private String type_history;
     
     public int getUserID() {
         return userID;
@@ -86,6 +88,19 @@ public class Account {
         this.mailaddress = mailaddress;
     }
 
+	public String getType_history() {
+		return type_history;
+	}
+
+	public void setType_history(String type_history) {
+		this.type_history = type_history;
+	}
+
+	
+
+	
+
+    
     
 
 }
