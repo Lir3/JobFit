@@ -22,6 +22,7 @@ public class LoginController {
         return "loginpage";
     }
 	
+	
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public String login(String username, String password, Model model) {
 		Account user = accountRepository.findByUsernameAndPassword(username, password);
