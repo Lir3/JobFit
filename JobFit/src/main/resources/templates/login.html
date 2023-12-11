@@ -12,9 +12,12 @@
   
     <!-- ログインフォーム -->
 		
-    <form action="/login" method="post">
-        <button type="button">ログイン</button>
-        <button type="button">ゲスト</button>
+    <form th:action="@{/loginpage}" method="get">
+        <!-- ログインボタンをsubmitに変更 -->
+        <button type="submit">ログイン</button>
+        <!-- ゲストログイン用のボタン -->
+        <button type="submit" formaction="@{/guest-login}">ゲスト</button>
+        <!-- アカウント登録ページへのリンク -->
         <a href="/register">アカウントを登録していない方</a>
     </form>
     <script>
