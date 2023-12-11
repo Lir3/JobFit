@@ -23,9 +23,6 @@ public class Account {
     @Column(name = "username") 
     private String username;
 
-    @Column(name = "Age")
-    private int age;
-
 
     @Enumerated(EnumType.STRING)
     @Column(name = "Gender")
@@ -45,54 +42,54 @@ public class Account {
 
     @Column(name = "type_history")
     private String type_history;
-    
-    public int getUserID() {
-        return userID;
-    }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
+	public int getUserID() {
+		return userID;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public int getAge() {
+		return Age;
+	}
 
-    public int getAge() {
-        return age;
-    }
+	public void setAge(int age) {
+		Age = age;
+	}
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public Gender getGender() {
-        return gender;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
+	public Gender getGender() {
+		return gender;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getMailaddress() {
-        return mailaddress;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setMailaddress(String mailaddress) {
-        this.mailaddress = mailaddress;
-    }
+	public String getMailaddress() {
+		return mailaddress;
+	}
+
+	public void setMailaddress(String mailaddress) {
+		this.mailaddress = mailaddress;
+	}
 
 	public String getType_history() {
 		return type_history;
@@ -101,8 +98,8 @@ public class Account {
 	public void setType_history(String type_history) {
 		this.type_history = type_history;
 	}
+    
 
-	
 
 	
 
