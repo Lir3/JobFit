@@ -51,7 +51,7 @@ public class LoginController {
                 return "redirect:/test";
             } else {
                 // 一般ユーザーの場合は診断画面に遷移
-                return "test2";
+                return "home";
             }
         } else {
             // ログイン失敗

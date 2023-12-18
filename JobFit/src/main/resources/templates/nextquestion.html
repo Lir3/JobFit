@@ -1,0 +1,23 @@
+<!-- nextquestion.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Next Question</title>
+</head>
+<body>
+	<h1>Question <span th:text="${questionNumber}"></span></h1>
+	<p th:text="${question.text}"></p>
+	<form id="answerForm" th:action="@{/questions/answer}"  method="post">
+    <input type="hidden" name="id" th:value="${question.id}">
+    <label for="choiceYes">Yes</label>
+    <input type="radio" id="choiceYes" name="choice" value="Yes" required>
+    <label for="choiceNo">No</label>
+    <input type="radio" id="choiceNo" name="choice" value="No" required>
+    <label for="choiceNeutral">Neither</label>
+    <input type="radio" id="choiceNeutral" name="choice" value="Neither" required>
+    <input type="hidden" name="questionNumber" th:value="${questionNumber}">
+    <button type="submit">Next</button>
+</form>
+</body>
+</html>

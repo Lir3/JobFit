@@ -28,6 +28,7 @@ form {
     max-width: 400px;
 }
 
+
 .btns {
   width: 130px;
     display: inline-block;
@@ -54,6 +55,14 @@ form {
     box-shadow: 4px 4px 9px 0px rgba(255,255,255,0.45) inset, -4px -4px 9px 0px rgba(0, 0, 0, 0.06) inset;/*ボタンに立体感を出す*/
     cursor: pointer;/*カーソル当てたときの動き*/
     transition: .3s;/*押したときの動きを滑らかに*/
+}
+
+.start_btn p{
+   margin: 0px 0; /* 上下のマージンを追加 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .start_btn:active {/*ボタンを押したとき*/
