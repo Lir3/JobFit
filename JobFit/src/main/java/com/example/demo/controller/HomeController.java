@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.demo.entity.Account;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -23,14 +25,21 @@ public class HomeController {
     @RequestMapping(path = "/dashboard", method = RequestMethod.GET)
     public String dashboard(HttpSession session, Model model) {
         // セッションから診断の結果を取得
-        String diagnosisResult = (String) session.getAttribute("result");
-        
-        if (diagnosisResult != null) {
-            model.addAttribute("result", diagnosisResult);
-        }
+        if (session.getAttribute("loggedInUser") != null) {
+            Account loggedInUser = (Account) session.getAttribute("loggedInUser");
 
-        // セッションから結果を削除
-        session.removeAttribute("diagnosisResult");
+            // ゲストユーザーでない場合のみ処理を行う
+            if (!"guest".equals(loggedInUser.getUsername())) {
+                String diagnosisResult = (String) session.getAttribute("result");
+
+                if (diagnosisResult != null) {
+                    model.addAttribute("result", diagnosisResult);
+                }
+
+                // セッションから結果を削除
+                session.removeAttribute("diagnosisResult");
+            }
+        }
 
         return "dashboard";
     }
