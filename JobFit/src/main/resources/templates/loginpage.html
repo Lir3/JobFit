@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログインページ</title>
     <link rel="stylesheet" type="text/css" href="/css/login.css">
+    
+    
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleIcon = document.getElementById("toggleIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.src = "https://img.icons8.com/material-rounded/24/000000/invisible.png";
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.src = "https://img.icons8.com/material-rounded/24/000000/visible.png";
+            }
+        }
+    </script>
+    
+
+
 </head>
-<body>	
+<body th:if="${session['loggedInUser'] == null}">	
     <div class="container">
         <h2>　　　　　　ログイン</h2>
         <form th:action="@{/loginpage}" method="post">
@@ -25,20 +44,13 @@
             <p th:text="${error}"></p>
         </div>
     </div>
-
-    <script>
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementById("password");
-            var toggleIcon = document.getElementById("toggleIcon");
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.src = "https://img.icons8.com/material-rounded/24/000000/invisible.png";
-            } else {
-                passwordInput.type = "password";
-                toggleIcon.src = "https://img.icons8.com/material-rounded/24/000000/visible.png";
-            }
-        }
-    </script>
+    
 </body>
 </html>
+
+<!-- ログインしている場合はhome画面にリダイレクト -->
+<script th:if="${session['loggedInUser'] != null}">
+    window.location.href = '/home';
+</script>
+
+
