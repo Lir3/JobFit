@@ -1,4 +1,4 @@
-<!-- src/main/resources/templates/start.html -->
+<!-- src/main/resources/templates/home-with-result.html -->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
-    <title>Start Diagnosis</title>
+    <title>Home with Result</title>
 </head>
 <body>
     <h1>JobFit 職業診断</h1>
     
     <p th:if="${previousResult != null}" th:text="'Previous Result: ' + ${previousResult}"></p>
 
-    <!-- Change to a button for diagnosis -->
+
    <form th:action="@{/questions/initial}" method="get">
         <div class="btns">
-			<p>JobFit診断</p>
+            <p>JobFit診断</p>
             <button class="start_btn" type="submit">スタート</button>
         </div>
     </form>
 
-    <a th:href="@{/dashboard}">JobFit Result</a>
+    <a th:href="@{/dashboard}">JobFit診断結果</a>
 </body>
 </html>

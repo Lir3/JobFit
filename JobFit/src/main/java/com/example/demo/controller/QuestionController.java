@@ -13,6 +13,8 @@ import com.example.demo.entity.Answers;
 import com.example.demo.entity.Question;
 import com.example.demo.service.ScoringService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/questions")
 public class QuestionController {
@@ -22,42 +24,41 @@ public class QuestionController {
 
     private static final int TOTAL_QUESTIONS = 24;
 
-    // 初期質問を表示
     @RequestMapping(path = "/initial", method = RequestMethod.GET)
     public String showInitialQuestions(Model model) {
         scoringService.initializeTypeQuestions();
-        Question initialQuestion = scoringService.getNextRandomQuestion(); 
+        Question initialQuestion = scoringService.getNextRandomQuestion();
         model.addAttribute("question", initialQuestion);
         model.addAttribute("questionNumber", 1);
-
-        return "initialquestion"; // HTMLビューの名前を返す
+        return "initialquestion";
     }
 
     @RequestMapping(path = "/answer", method = RequestMethod.POST)
-    public String answerQuestion(@ModelAttribute("questionNumber") int questionNumber,@ModelAttribute("userAnswer") Answers userAnswer, Model model) {
+    public String answerQuestion(@ModelAttribute("questionNumber") int questionNumber,
+                                 @ModelAttribute("userAnswer") Answers userAnswer,
+                                 Model model, HttpSession session) {
         try {
             scoringService.calculateScores(List.of(userAnswer));
-            //int currentQuestionNumber = (int) model.getAttribute("questionNumber");
 
             if (questionNumber < TOTAL_QUESTIONS) {
-            	Question nextQuestion = scoringService.getNextRandomQuestion();
-            	model.addAttribute("question", nextQuestion);
-            	model.addAttribute("questionNumber", questionNumber + 1);
+                Question nextQuestion = scoringService.getNextRandomQuestion();
+                model.addAttribute("question", nextQuestion);
+                model.addAttribute("questionNumber", questionNumber + 1);
                 return "nextquestion";
             } else {
                 return "redirect:/questions/result";
             }
         } catch (Exception e) {
-        	  e.printStackTrace(); 
+            e.printStackTrace();
             return "error";
         }
     }
 
-    // 最終的な結果を表示
     @RequestMapping(path = "/result", method = RequestMethod.GET)
-    public String showFinalResult(Model model) {
+    public String showFinalResult(Model model, HttpSession session) {
         String finalResult = scoringService.getFinalResult();
         model.addAttribute("result", finalResult);
-        return "finalresult"; // HTMLビューの名前を返す
+        session.setAttribute("result", finalResult);
+        return "finalresult";
     }
 }
