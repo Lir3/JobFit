@@ -47,21 +47,21 @@ public class ScoringService {
         }
 
         for (Answers answer : userAnswers) {
-            Question question = questionRepository.findById(answer.getQuestion()).orElse(null);
+            // Questionが直接関連付けられているので、answerから直接質問を取得
+            Question question = answer.getQuestion();
+            
+            // もし回答に対応する質問が存在する場合
             if (question != null) {
                 String typeName = question.getType().getName();
                 int answerScore = getAnswerScore(question, answer.getChoice());
                 // タイプのスコアに回答のポイントを加算
                 typeScores.put(typeName, typeScores.getOrDefault(typeName, 0) + answerScore);
-           
+                
                 // ポイントの加算情報をコンソールに出力
                 System.out.println("質問ID: " + question.getId() + ", タイプ: " + typeName + ", 回答: " + answer.getChoice() + ", ポイント: " + answerScore);
-                
-                
             } else {
-                // エラーハンドリング: question が見つからなかった場合の処理
-                // 例: ログを出力して通知する、エラーページにリダイレクトする など
-
+                // エラーハンドリング: 質問が見つからなかった場合の処理
+                System.out.println("エラー: 質問が見つかりません。");
                 // その他のエラーハンドリングの処理を追加
             }
         }

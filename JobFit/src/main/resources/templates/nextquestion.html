@@ -10,14 +10,10 @@
 	<p th:text="${question.text}"></p>
 	<form id="answerForm" th:action="@{/questions/answer}"  method="post">
     <input type="hidden" name="id" th:value="${question.id}">
-    <label for="choiceYes">Yes</label>
-    <input type="radio" id="choiceYes" name="choice" value="Yes" required>
-    <label for="choiceNo">No</label>
-    <input type="radio" id="choiceNo" name="choice" value="No" required>
-    <label for="choiceNeutral">Neither</label>
-    <input type="radio" id="choiceNeutral" name="choice" value="Neither" required>
+    <button type="submit"id="choiceYes" name="choice" value="はい">はい</button>
+    <button type="submit"id="choiceNo" name="choice" value="いいえ">いいえ</button>
+    <button type="submit"id="choiceNeutral" name="choice" value="どちらでもない">どちらでもない</button>
     <input type="hidden" name="questionNumber" th:value="${questionNumber}">
-    <button type="submit">Next</button>
 </form>
 </body>
 </html>
