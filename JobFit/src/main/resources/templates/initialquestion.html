@@ -1,23 +1,74 @@
 <!-- nextquestion.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-	<meta charset="UTF-8">
-	<title>Initial Question</title>
+    <meta charset="UTF-8">
+    <title>NEXT Question</title>
+    <link rel="stylesheet" type="text/css" href="/css/initialquestion.css">
+    <script>
+        function updateRemainingQuestions() {
+            var remainingQuestions = document.getElementById('remainingQuestions');
+            var currentCount = parseInt(remainingQuestions.textContent);
+            remainingQuestions.textContent = currentCount - 1;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // ボタン要素を取得
+            var choiceYesBtn = document.getElementById('choiceYes');
+            var choiceNoBtn = document.getElementById('choiceNo');
+            var choiceNeutralBtn = document.getElementById('choiceNeutral');
+
+          
+
+			const num = document.querySelector('h1 span').textContent;
+			document.querySelectorAll('.check_meter li').forEach((li, i) => {
+				console.log(li);
+				if (num > i) {
+					li.classList.add('check');
+				}
+				
+			});
+
+            // クラスを更新する関数
+            function updateLiClass(className, index) {
+				document.querySelectorAll('.check_meter li').forEach((li, i) => {
+					console.log(li);
+					li.classList.add(className);
+				});
+                // 現在のliから先頭のliまでの全てのliに指定のクラスを追加
+//                for (var i = index; i >= 0; i--) {
+//                    var currentLi = document.querySelector('.check_meter li:nth-child(' + (i + 1) + ')');
+//                    currentLi.classList.add(className);
+//                }
+//
+//                // 次のliに指定のクラスを追加
+//                var nextLi = document.querySelector('.check_meter li:nth-child(' + (index + 2) + ')');
+//                if (nextLi) {
+//                    nextLi.classList.add(className);
+//                }
+            }
+        });
+    </script>
 </head>
-
 <body>
-	<h1>Question <span th:text="${questionNumber}"></span></h1>
-	<p th:text="${question.text}"></p>
-	<form id="answerForm" th:action="@{/questions/answer}"  method="post">
-    <input type="hidden" name="id" th:value="${question.id}">
-    <button type="submit"id="choiceYes" name="choice" value="はい">はい</button>
-    <button type="submit"id="choiceNo" name="choice" value="いいえ">いいえ</button>
-    <button type="submit"id="choiceNeutral" name="choice" value="どちらでもない">どちらでもない</button>
-    <input type="hidden" name="questionNumber" th:value="${questionNumber}">
-</form>
-
+    <div class="container">
+        <h1>Question <span th:text="${questionNumber}"></span></h1>
+        <p th:text="${question.text}"></p>
+        <form id="answerForm" th:action="@{/questions/answer}" method="post" onsubmit="updateRemainingQuestions()">
+            <input type="hidden" name="id" th:value="${question.id}">
+            <button type="submit" id="choiceYes" name="choice" value="はい">はい</button>
+            <button type="submit" id="choiceNo" name="choice" value="いいえ">いいえ</button>
+            <button type="submit" id="choiceNeutral" name="choice" value="どちらでもない">どちらでもない</button>
+            <ul class="check_meter">
+                <li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li>
+            </ul>
+            <p class="bold center mb40_sp nokori">診断終了まで残り<span id="remainingQuestions" th:text="${24 - questionNumber}"></span>問</p>
+            <input type="hidden" name="questionNumber" th:value="${questionNumber}">
+        </form>
+    </div>
 </body>
-
 </html>

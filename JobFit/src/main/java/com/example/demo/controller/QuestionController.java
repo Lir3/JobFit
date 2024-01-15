@@ -23,6 +23,7 @@ public class QuestionController {
     private ScoringService scoringService;
 
     private static final int TOTAL_QUESTIONS = 24;
+    
 
     @RequestMapping(path = "/initial", method = RequestMethod.GET)
     public String showInitialQuestions(Model model) {
@@ -32,6 +33,8 @@ public class QuestionController {
         model.addAttribute("questionNumber", 1);
         return "initialquestion";
     }
+    
+    
 
     @RequestMapping(path = "/answer", method = RequestMethod.POST)
     public String answerQuestion(@ModelAttribute("questionNumber") int questionNumber,

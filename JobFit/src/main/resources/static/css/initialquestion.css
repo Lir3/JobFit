@@ -1,0 +1,81 @@
+/* initialquestion.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.choiceBtn {
+    /* 共通のスタイルを追加 */
+    color: white;
+}
+
+#choiceYes {
+    background-color: #4CAF50; /* グリーン */
+}
+
+#choiceNo {
+    background-color: #f44336; /* レッド */
+}
+
+#choiceNeutral {
+    background-color: #008CBA; /* ブルー */
+}
+
+.check_meter {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.check_meter li {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.mb40_sp {
+    margin-bottom: 40px;
+}
+
+.nokori {
+    color: #999;
+}
+
+/* .check クラスが付いたときのスタイル（チェックマークを表示する） */
+.check_meter li.check {
+    background-color: rgb(255, 0, 0); /* チェックマークの色（赤色） */
+}
