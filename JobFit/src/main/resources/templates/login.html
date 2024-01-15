@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <body>
+	<div class="header-holder">
+	<header>
+		<div class="wrapper">
+			<a class="logo" href="/"></a>
+			<h1>JobFitへようこそ</h1>
+		</div>
+		
+	</header>
+	</div>
 
-    <h2>JobFitへようこそ</h2>
   
-    <!-- ログインフォーム -->
-    <form th:action="@{/loginpage}" method="get" id="loginForm">
-        <!-- ログインボタンをsubmitに変更 -->
-        <button type="submit">ログイン</button>
-        <!-- ゲストログイン用のボタン -->
-        <button type="button" onclick="guestLogin()">ゲスト</button>
-        <!-- アカウント登録ページへのリンク -->
-        <a href="/register">アカウントを登録していない方</a>
-    </form>
+      <div class="image-container">
+        <!-- ログインフォーム -->
+        <form th:action="@{/loginpage}" method="get" id="loginForm" class="login-form">
+            <!-- ログインボタンをsubmitに変更 -->
+            <button type="submit">ログイン</button>
+            <!-- ゲストログイン用のボタン -->
+            <button type="button" onclick="guestLogin()">ゲスト</button>
+            <!-- アカウント登録ページへのリンク -->
+            <a href="/register">アカウントを登録していない方</a>
+        </form>
+    </div>
+
+
 
     <script>
         // ゲストログイン用の関数

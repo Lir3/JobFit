@@ -9,18 +9,28 @@
     <title>Home with Result</title>
 </head>
 <body>
-    <h1>JobFit 職業診断</h1>
+	
+	<div class="header-holder">
+	<header>
+		<div class="wrapper">
+			<a class="logo" href="/"></a>
+			<h1>　　　　　　 JobFit診断</h1>
+			<h2>質問に答えてあなたに合ったIT職種を見つけよう！！</h2>
+		</div>
+		
+	</header>
+	</div>
+	
     
     <p th:if="${previousResult != null}" th:text="'Previous Result: ' + ${previousResult}"></p>
 
 
-   <form th:action="@{/questions/initial}" method="get">
+   <form th:action="@{/questions/initial}" method="get"id="loginForm" class="login-form">
         <div class="btns">
-            <p>JobFit診断</p>
-            <button class="start_btn" type="submit">スタート</button>
+            <button class="start_btn" type="submit">ＳＴＡＲＴ</button>
         </div>
     </form>
-
+    <p></p>
     <a th:href="@{/dashboard}">JobFit診断結果</a>
 </body>
 </html>

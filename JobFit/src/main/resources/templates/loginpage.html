@@ -26,13 +26,22 @@
 
 </head>
 <body th:if="${session['loggedInUser'] == null}">	
+	
+	<div class="header-holder">
+	<header>
+		<div class="wrapper">
+			<a class="logo" href="/"></a>
+			<h1>　　ログイン</h1>
+		</div>
+		
+	</header>
+	</div>
     <div class="container">
-        <h2>　　　　　　ログイン</h2>
-        <form th:action="@{/loginpage}" method="post">
+        <form th:action="@{/loginpage}" method="post"id="loginForm" class="login-form">
             <label for="username">ユーザー名：</label>
             <input type="text" id="username" name="username" required>
             <br>
-            <label for="password">パスワード：</label>
+            <label for="password">　 パスワード：</label>
             <input type="password" id="password" name="password" required>
             <span onclick="togglePasswordVisibility()">
                 <img id="toggleIcon" src="https://img.icons8.com/material-rounded/24/000000/visible.png"/>

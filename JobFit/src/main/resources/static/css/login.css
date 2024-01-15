@@ -1,70 +1,171 @@
+/* Reset some default styles */
 @charset "UTF-8";
+
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 水平方向に中央揃え */
-    justify-content: center; /* 垂直方向に中央揃え */
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* 水平方向に中央揃え */
+
+	min-height: 100vh;
+	background-color: #f4f4f4;
+
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image:
+		linear-gradient(140deg,
+			#00f3ffA0,
+			#0028b960 40%,
+			#00f3ff60 60%,
+			#00f3ffA0),
+		url(../images/laptop.jpg);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	animation: move 20s infinite both;
+}
+
+@keyframes move {
+	0% {
+		background-size: 100% auto;
+	}
+
+	50% {
+		background-size: 140% auto;
+	}
+
+	100% {
+		background-size: 100% auto;
+	}
+}
+
+header a.logo {
+    display: inline-block;
+    width: 180px;
+    height: 130px;
+    background-size: contain;
+    background-image: url(../images/JobFit.png);
+    background-repeat: no-repeat;
+    background-position: center 17px;
+    vertical-align: middle;
+    margin-right: 50px;
+    z-index: 1;
+    opacity: 1;
+    display: inline-block;
+}
+
+.header-holder:not(.moved) header .wrapper {
+	border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 1300px) {
+
+	header .wrapper,
+	.submenu .wrapper {
+		width: 1050px;
+	}
+}
+
+header .wrapper,
+.submenu .wrapper {
+	width: 1280px;
+	display: inline-block;
+	text-align: left;
+	position: static;
+	overflow: visible;
 }
 
 
-h2 {
-    text-align: left;
-    color: #333;
+.image-container {
+	width: 100%;
+	height: 50vh;
+	/* 画面高さの50%に設定 */
+
+}
+
+img {
+	width: 5%;
+	height: 10%;
+	/* コンテナいっぱいに表示 */
+}
+
+
+
+.login-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+header h1 {
+    margin-top: 30px;
+    text-align: center;
+    color: #f4f4f4;
+    margin-left: 280px; /* ロゴとの間隔を調整するために追加 */
+}
+header .wrapper {
+    display: flex;
+    align-items: center; 
 }
 
 form {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px; /* 最大幅を設定 */
+	text-align: center;
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
 }
 
 button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: block;
-    width: 100%; /* ボタンを親要素いっぱいに広げる */
+	background-color: #3498db;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	margin: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	display: block;
+	width: 100%;
 }
 
 button:hover {
-    background-color: #2980b9;
+	background-color: #2980b9;
 }
 
 @media screen and (max-width: 600px) {
-    /* 小さな画面に対してスタイルを調整 */
-    h2 {
-        text-align: center;
-    }
-    form {
-        width: 100%;
-    }
-    button {
-        width: 100%;
-    }
+	h2 {
+		text-align: center;
+	}
+
+	form {
+		width: 100%;
+	}
+
+	button {
+		width: 100%;
+	}
 }
 
-
-
 p {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    width: 100%;
-    max-width: 400px; /* 最大幅を設定 */
+	text-align: center;
+	margin-top: 20px;
+	padding: 20px;
+	width: 100%;
+	max-width: 400px;
 }
